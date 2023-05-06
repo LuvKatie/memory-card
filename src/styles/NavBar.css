@@ -1,0 +1,9 @@
+header {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr;
+    justify-items: center;
+}
+
+header p {
+    font-size: 1.2em;
+}

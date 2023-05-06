@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./Cards";
 
-const CardContainer = () => {
+const CardContainer = (props) => {
 
     return (
         <div id="card-container">
-            <Cards />
+            <Cards images={props.images}/>
         </div>
     )
 }

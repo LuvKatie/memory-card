@@ -7,12 +7,25 @@ import './styles/Cards.css'
 import './styles/NavBar.css'
 
 const App = () => {
+  
+  const characterImages = {
+    sage: require('./images/sage.jpg'),
+    reyna: require('./images/reyna.jpg'),
+    fade: require('./images/fade.jpg'),
+    jett: require('./images/jett.jpg'),
+    neon: require('./images/neon.jpg'),
+    kj: require('./images/kj.jpg'),
+    raze: require('./images/raze.webp'),
+    astra: require('./images/astra.webp'),
+    viper: require('./images/viper.jpg'),
+    skye: require('./images/skye.webp')
+  }
 
 
   return (
     <>
       <NavBar />
-      <CardContainer />
+      <CardContainer images={characterImages}/>
     </>
   )
 }
