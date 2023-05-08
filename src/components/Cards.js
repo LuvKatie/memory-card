@@ -7,11 +7,17 @@ const Cards = (props) => {
         const cardItems = [];
 
         for (let img in props.images) {
-            cardItems.push(<img className={`card ${img}`} 
-            key={`${uniqid()}`} 
+            cardItems.push(
+            <div id="card" key={`${uniqid()}`}>
+
+            <img className={img} 
             alt="Character Card of Valorant Agent" 
             src={props.images[img]}
-            onClick={() => {props.clickEvent(img)}}></img>)
+            onClick={() => {props.clickEvent(img)}}>
+            </img>
+
+            <div id="overlay" className={`${img} hideToggle`}></div>
+            </div>)
         }
         
         return props.randomize(cardItems);

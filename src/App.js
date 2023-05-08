@@ -75,14 +75,29 @@ const App = () => {
     return cards;
   }
 
-  // useEffect(() => {
-  //   Test on cards state change whether or not it was a
-  //   correct move ( click ) and depending on the answer we will
-  //   either increment state score or
-  //   tear it down and reset all of cards states back to how it was originally
-  // }, [cards])
-
   function handleClick(card) {
+    handleOverlays(card);
+
+    setTimeout(() => {
+      handleCardState(card)
+    }, 2000)
+  }
+
+  function handleOverlays(card) {
+    const getOverlays = document.querySelectorAll("#overlay");
+
+    getOverlays.forEach(overlay => {
+      if (overlay.className.includes(`${card}`)) {
+        overlay.classList.toggle('hideToggle');
+        overlay.classList.add('correct');
+      } else {
+        overlay.classList.toggle('hideToggle');
+        overlay.classList.add('not-selected');
+      }
+    })
+  }
+
+  function handleCardState(card) {
     setCards(allCards => ({
       ...allCards,
       [card]: {
