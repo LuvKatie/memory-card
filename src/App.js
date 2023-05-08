@@ -5,43 +5,45 @@ import './styles/App.css'
 import './styles/CardContainer.css'
 import './styles/Cards.css'
 import './styles/NavBar.css'
-import { tsConstructSignatureDeclaration } from "@babel/types";
 
 const App = () => {
-  const [cards, setCards] = useState({
-      sage: {
-        clicked: false
-      },
-      reyna: {
-        clicked: false
-      },
-      viper: {
-        clicked: false
-      },
-      neon: {
-        clicked: false
-      },
-      kj: {
-        clicked: false
-      },
-      fade: {
-        clicked: false
-      },
-      astra: {
-        clicked: false
-      },
-      raze: {
-        clicked: false
-      },
-      jett: {
-        clicked: false
-      },
-      skye: {
-        clicked: false
-      },
-  })
+ 
+  const initialCards = {
+    sage: {
+      clicked: false
+    },
+    reyna: {
+      clicked: false
+    },
+    viper: {
+      clicked: false
+    },
+    neon: {
+      clicked: false
+    },
+    kj: {
+      clicked: false
+    },
+    fade: {
+      clicked: false
+    },
+    astra: {
+      clicked: false
+    },
+    raze: {
+      clicked: false
+    },
+    jett: {
+      clicked: false
+    },
+    skye: {
+      clicked: false
+    },
+  };
 
-  const [score, setScore] = useState(0);
+  const [cards, setCards] = useState(initialCards)
+
+  // const [score, setScore] = useState(0);
   
   const characterImages = {
     sage: require('./images/sage.jpg'),
@@ -76,20 +78,29 @@ const App = () => {
   }
 
   function handleClick(card) {
-    handleOverlays(card);
-
-    setTimeout(() => {
-      handleCardState(card)
-    }, 2000)
+    if (cards[card].clicked === false) {
+      handleOverlays(card, 'correct');
+      setTimeout(() => {
+        handleCardState(card, 'correct')
+      }, 1200)
+    } else {
+      handleOverlays(card, 'incorrect');
+      setTimeout(() => {
+        handleCardState(card, 'incorrect')
+      }, 1200)
+    }
   }
 
-  function handleOverlays(card) {
+  function handleOverlays(card, result) {
     const getOverlays = document.querySelectorAll("#overlay");
 
     getOverlays.forEach(overlay => {
-      if (overlay.className.includes(`${card}`)) {
+      if (overlay.className.includes(`${card}`) && result === 'correct') {
         overlay.classList.toggle('hideToggle');
         overlay.classList.add('correct');
+      } else if (overlay.className.includes(`${card}`) && result === 'incorrect') {
+        overlay.classList.toggle('hideToggle');
+        overlay.classList.add('incorrect');
       } else {
         overlay.classList.toggle('hideToggle');
         overlay.classList.add('not-selected');
@@ -97,14 +108,23 @@ const App = () => {
     })
   }
 
-  function handleCardState(card) {
-    setCards(allCards => ({
-      ...allCards,
-      [card]: {
-        clicked: true
-      }
-    }))
+  function handleCardState(card, result) {
+    if (result === 'correct') {
+      setCards(allCards => ({
+        ...allCards,
+        [card]: {
+          clicked: true
+        }
+      }))
+    } else {
+      setCards(initialCards)
+    }
   }
+
+  useEffect(() => {
+    console.log('useEffect')
+    console.log(cards)
+  }, [cards])
 
   return (
     <>
