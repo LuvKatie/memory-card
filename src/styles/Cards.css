@@ -12,6 +12,10 @@ img {
     object-fit: cover;
 }
 
+img:hover {
+    box-shadow: -3px -3px 22px 3px #f0e3ff, 3px 3px 22px 3px #7b00e0;
+}
+
 #overlay {
     position: absolute;
     width: 100%;
@@ -24,13 +28,15 @@ img {
 }
 
 .correct {
-    background-color: rgba(114, 253, 96, 0.5);
+    background-color: rgba(145, 255, 130, 0.3);
+    box-shadow: 0px 0px 9px 6px #29ff57;
 }
 
 .incorrect {
-    background-color: rgba(214, 34, 34, 0.3);
+    background-color: rgba(214, 34, 34, 0.4);
+    box-shadow: 0px 0px 9px 6px #ff4545;
 }
 
 .not-selected {
-    background-color: rgba(75, 75, 75, 0.6);
+    background-color: rgba(56, 56, 56, 0.6);
 }
