@@ -1,11 +1,11 @@
 import React from "react";
 
-const NavBar = () => {
+const NavBar = (props) => {
     
     return (
         <header>
-            <p>Valorant Memory Card</p>
-            <p>Score: 0</p>
+            <p id="title">Valorant Memory Card</p>
+            <p id="score">Score: {props.score} / 10</p>
         </header>
     )
 }

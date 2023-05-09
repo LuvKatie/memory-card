@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./components/Cards";
 import NavBar from "./components/Navbar";
+import Footer from "./components/Footer";
 import './styles/App.css'
 import './styles/CardContainer.css'
 import './styles/Cards.css'
 import './styles/NavBar.css'
+import './styles/Footer.css'
 
 const App = () => {
  
@@ -43,7 +45,7 @@ const App = () => {
 
   const [cards, setCards] = useState(initialCards)
 
-  // const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
   
   const characterImages = {
     sage: require('./images/sage.jpg'),
@@ -116,8 +118,11 @@ const App = () => {
           clicked: true
         }
       }))
+
+      setScore(score + 1)
     } else {
       setCards(initialCards)
+      setScore(0)
     }
   }
 
@@ -128,8 +133,9 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar score={score}/>
       <Cards images={characterImages} randomize={randomizeCards} clickEvent={handleClick}/>
+      <Footer />
     </>
   )
 }

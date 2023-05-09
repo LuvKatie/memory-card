@@ -4,6 +4,15 @@ header {
     justify-items: center;
 }
 
-header p {
-    font-size: 1.2em;
+#title {
+    font-size: 1.5em;
+    font-weight: 600;
+    background: linear-gradient(to right, #ff6471 -12%, #ffffff 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+#score {
+    font-size: 1.5em;
+    color: white;
 }
