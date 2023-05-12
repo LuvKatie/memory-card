@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.24169b22.css",
+    "main.js": "/memory-card/static/js/main.1dfe9894.js",
+    "static/media/fade.jpg": "/memory-card/static/media/fade.7e0d74f808c56d207b59.jpg",
+    "static/media/astra.webp": "/memory-card/static/media/astra.11e5d98fb4f9a9ed51d7.webp",
+    "static/media/viper.jpg": "/memory-card/static/media/viper.2f7b3905343a60cb62c1.jpg",
+    "static/media/sage.jpg": "/memory-card/static/media/sage.e8f58ca18d2a4efb67f2.jpg",
+    "static/media/left-bg.jpg": "/memory-card/static/media/left-bg.748e3d1ace832192895d.jpg",
+    "static/media/right-bg.jpg": "/memory-card/static/media/right-bg.0afaabfc288af7349e5f.jpg",
+    "static/media/neon.jpg": "/memory-card/static/media/neon.80ced055b609bfd1eaa8.jpg",
+    "static/media/kj.jpg": "/memory-card/static/media/kj.33db98a4d6c0b76b2c63.jpg",
+    "static/media/reyna.jpg": "/memory-card/static/media/reyna.108610476c0163210700.jpg",
+    "static/media/raze.webp": "/memory-card/static/media/raze.21f21f7e859b0d70c7d7.webp",
+    "static/media/skye.webp": "/memory-card/static/media/skye.e92b41fdcbb02f0fadab.webp",
+    "static/media/jett.jpg": "/memory-card/static/media/jett.779febe345df85fe354e.jpg",
+    "static/media/github-icon.svg": "/memory-card/static/media/github-icon.3824adb61cb631305c1465191c08057b.svg",
+    "index.html": "/memory-card/index.html",
+    "main.24169b22.css.map": "/memory-card/static/css/main.24169b22.css.map",
+    "main.1dfe9894.js.map": "/memory-card/static/js/main.1dfe9894.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24169b22.css",
+    "static/js/main.1dfe9894.js"
+  ]
+}
