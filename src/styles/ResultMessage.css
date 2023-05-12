@@ -1,0 +1,66 @@
+#resultMessage {
+    display: none;
+    left: 40%;
+    top: 15%;
+    position: absolute;
+    width: 400px;
+    height: 500px;
+}
+
+#result {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+
+    font-size: 32px;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 7px;
+    text-decoration: underline;
+    color: rgb(113, 255, 113);
+}
+
+#result.victory {
+    color: rgb(113, 255, 113);
+}
+
+#result.defeat {
+    color: rgb(255, 53, 53);
+}
+
+#play-again {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+
+    width: 150px;
+    height: 40px;
+
+    background-color: #0c141b;
+    color: #ff4545;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #202020;
+    outline: none;
+}
+
+#play-again:hover {
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 0px 6px 3px #ffffff;
+    border: none;
+    color: #ff6868;
+    transition: all 250ms ease-in-out;
+}
+
+#play-again.reveal-results,
+#result.reveal-results,
+#resultMessage.reveal-results {
+    display: block;
+}
