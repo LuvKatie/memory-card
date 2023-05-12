@@ -9,6 +9,8 @@ import './styles/NavBar.css'
 import './styles/Footer.css'
 import './styles/ResultMessage.css'
 
+// Force deploy
+
 const App = () => {
  
   const initialCards = {
