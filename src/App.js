@@ -47,8 +47,6 @@ const App = () => {
   const [cards, setCards] = useState(initialCards)
 
   const [score, setScore] = useState(0);
-
-  //test
   
   const characterImages = {
     sage: require('./images/sage.jpg'),
