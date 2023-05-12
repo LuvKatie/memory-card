@@ -1,7 +1,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background-image: url('../images/memory-bg.jpg');
+    /* background-image: url('../images/background/memory-bg.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -12,11 +12,56 @@ body {
     min-height: 100vh;
 }
 
-#defeat-screen {
-    display: flex;
-    height: 100%;
+/* Win Lose reveal CSS */
+
+#bg-img {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#left-bg,
+#right-bg {
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+#left-bg {
+    background-image: url('../images/background/left-bg.jpg');
+}
+
+#right-bg {
+    background-image: url('../images/background/right-bg.jpg');
+}
+
+.left-hover {
+    animation: reveal-left 3.5s forwards;
+}
+
+.right-hover {
+    animation: reveal-right 3.5s forwards;
+}
+
+@keyframes reveal-left {
+    from {
+        clip-path: inset(0 0 0 0);
+    }
+    to {
+        clip-path: inset(0 100% 0 0);
+    }
+}
+
+@keyframes reveal-right {
+    from {
+        clip-path: inset(0 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 100%);
+    }
 }

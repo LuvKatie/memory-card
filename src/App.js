@@ -87,10 +87,32 @@ const App = () => {
       }, 1200)
     } else {
       handleOverlays(card, 'incorrect');
-      setTimeout(() => {
-        handleCardState(card, 'incorrect')
-      }, 1200)
+      // setTimeout(() => {
+      //   handleCardState(card, 'incorrect')
+      // }, 1200)
     }
+  }
+
+  function resultScreen (result) {
+    const leftBG = document.getElementById('left-bg');
+    const rightBG = document.getElementById('right-bg');
+    const bgImg = document.getElementById('bg-img');
+    const cardContainer = document.getElementById('card-container');
+    const footer = document.getElementById('footer');
+
+    const victoryGif = 'https://64.media.tumblr.com/973b2c5280b4b5179bb09bc28c9b97d5/29c64f10a3375b77-94/s640x960/352b9bcc1cb235c175790eaa6057abc0ef13ffeb.gifv';
+    const defeatGif = 'https://64.media.tumblr.com/ebf2748f2064107a0d9dcec26ad4fe9a/9e1fd39c604fff15-5f/s640x960/000eac0c83086730fb579a08074ffb6513c96f80.gifv';;
+    
+    if (result === 'correct') {
+      bgImg.setAttribute('style', `background-image: url(${victoryGif})`)
+    } else if (result === 'incorrect') {
+      bgImg.setAttribute('style', `background-image: url(${defeatGif})`)
+    }
+
+    cardContainer.classList.add('hide-container');
+    footer.classList.add('hide-footer');
+    leftBG.classList.add('left-hover');
+    rightBG.classList.add('right-hover');
   }
 
   function handleOverlays(card, result) {
@@ -103,14 +125,37 @@ const App = () => {
       } else if (overlay.className.includes(`${card}`) && result === 'incorrect') {
         overlay.classList.toggle('hideToggle');
         overlay.classList.add('incorrect');
+        setTimeout(() => {
+          resultScreen(result);
+        }, 1200)
       } else {
         overlay.classList.toggle('hideToggle');
         overlay.classList.add('not-selected');
+      }
+
+      if (score === 9) {
+        setTimeout(() => {
+          resultScreen(result);
+        }, 1200)
       }
     })
   }
 
   function handleCardState(card, result) {
+    if (score === 9) {
+      setTimeout(() => {
+        setCards(allCards => ({
+          ...allCards,
+          [card]: {
+            clicked: true
+          }
+        }))
+  
+        setScore(score + 1)
+      }, 1500)
+      return;
+    }
+
     if (result === 'correct') {
       setCards(allCards => ({
         ...allCards,
@@ -126,13 +171,12 @@ const App = () => {
     }
   }
 
-  useEffect(() => {
-    console.log('useEffect')
-    console.log(cards)
-  }, [cards])
-
   return (
     <>
+    <div id="bg-img">
+      <div id="left-bg"></div>
+      <div id="right-bg"></div>
+    </div>
       <NavBar score={score}/>
       <Cards images={characterImages} randomize={randomizeCards} clickEvent={handleClick}/>
       <Footer />

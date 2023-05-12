@@ -4,3 +4,8 @@
     align-items: center;
     justify-self: center;
 }
+
+.hide-container {
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
